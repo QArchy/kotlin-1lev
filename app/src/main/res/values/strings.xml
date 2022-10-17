@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">KotlinHomework</string>
+    <string name="activity_main_add_button_text">Add element</string>
+    <string name="list_element_image_view_desc">Image</string>
+    <string name="list_element_text_view_text">Digit</string>
+</resources>
