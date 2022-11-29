@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import ru.vk.kotlinhomework.databinding.ListElementBinding
 
 class MainAdapter(private val gridElements: List<GridElement>) :
@@ -26,6 +27,10 @@ class MainAdapter(private val gridElements: List<GridElement>) :
                 gridElements[position].properties.first.third)
             )
             binding.textViewListElement.text = gridElements[position].properties.second.toString()
+            binding.root.setOnClickListener {
+                Snackbar.make(binding.root, gridElements[position].properties.second.toString(),
+                    Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 

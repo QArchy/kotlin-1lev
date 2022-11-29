@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.activityMainToolbar)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().add(
-                R.id.activity_main_fragmentContainerView, MainFragment()
+                R.id.activity_main_fragmentContainerView, MainFragment.Create(5)
             ).commit()
         }
     }

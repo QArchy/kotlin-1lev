@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import ru.vk.kotlinhomework.databinding.FragmentMainBinding
 
-class MainFragment: Fragment() {
+class MainFragment(): Fragment() {
 
                         // Variables declaration
 
@@ -37,6 +37,15 @@ class MainFragment: Fragment() {
             while (tmp > 0) {
                 gridElements.add(genGridElement())
                 tmp--
+            }
+        }
+        else {
+            val tmp = arguments?.getInt("INITIAL_GRID_ELEMENTS_SIZE")
+            if (tmp != null) {
+                for (i in 0.. tmp) {
+                    gridElements.add(genGridElement())
+                    binding.fragmentMainRv.adapter!!.notifyDataSetChanged()
+                }
             }
         }
 
@@ -77,5 +86,15 @@ class MainFragment: Fragment() {
 
     companion object {
         const val GRID_ELEMENTS_SIZE = "GRID_ELEMENTS_SIZE"
+
+        fun Create(item_count: Int): MainFragment {
+            val frag = MainFragment()
+            val b = Bundle()
+            b.apply {
+                putInt("INITIAL_GRID_ELEMENTS_SIZE", item_count)
+            }
+            frag.arguments = b
+            return frag
+        }
     }
 }
