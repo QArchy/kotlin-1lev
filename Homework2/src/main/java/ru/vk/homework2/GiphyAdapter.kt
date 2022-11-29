@@ -20,18 +20,18 @@ class CatDiffitemCallback: DiffUtil.ItemCallback<DataObject>() {
 	}
 }
 
-class CatAdapter: ListAdapter<DataObject, CatAdapter.CatViewHolder>(CatDiffitemCallback()) {
-	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatViewHolder {
+class GifAdapter: ListAdapter<DataObject, GifAdapter.GifViewHolder>(CatDiffitemCallback()) {
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GifViewHolder {
 		val view = LayoutInflater.from(parent.context).inflate(R.layout.item_item, parent, false)
-		return CatViewHolder(view)
+		return GifViewHolder(view)
 	}
 
-	override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
-		val cat = getItem(position)
-		holder.bind(cat)
+	override fun onBindViewHolder(holder: GifViewHolder, position: Int) {
+		val gif = getItem(position)
+		holder.bind(gif)
 	}
 
-	class CatViewHolder(view: View): RecyclerView.ViewHolder(view) {
+	class GifViewHolder(view: View): RecyclerView.ViewHolder(view) {
 		protected val image by lazy { view.findViewById<ImageView>(R.id.image) }
 		protected val imageLoader by lazy { Glide.with(image) }
 

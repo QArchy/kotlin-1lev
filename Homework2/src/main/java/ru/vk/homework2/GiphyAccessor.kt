@@ -25,14 +25,14 @@ data class ogImage(
 	val url: String
 )
 
-interface CatsAccessor {
-	@GET("gifs/trending")
-	suspend fun getCats(@Query("q") query: String, @Query("limit") limit: Int, @Query("api_key") api_key: String, @Query("offset") offset: Int) : DataResult
+interface GiphyAccessor {
+	@GET("gifs/search")
+	suspend fun getGifs(@Query("q") query: String, @Query("limit") limit: Int, @Query("api_key") api_key: String, @Query("offset") offset: Int) : DataResult
 
 	companion object {
 		const val baseUrl = "https://api.giphy.com/v1/"
 
-		fun create(): CatsAccessor {
+		fun create(): GiphyAccessor {
 			val loggingInterceptor = HttpLoggingInterceptor().apply {
 				level = HttpLoggingInterceptor.Level.BODY
 			}
@@ -47,7 +47,7 @@ interface CatsAccessor {
 				baseUrl(baseUrl)
 			}.build()
 
-			return retrofit.create(CatsAccessor::class.java)
+			return retrofit.create(GiphyAccessor::class.java)
 		}
 	}
 }

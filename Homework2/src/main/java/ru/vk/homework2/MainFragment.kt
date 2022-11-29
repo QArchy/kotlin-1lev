@@ -20,8 +20,6 @@ class MainFragment : Fragment() {
 
 	private val viewModel by viewModels<MainViewModel>()
 
-	private val catAdapter = CatAdapter()
-
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
@@ -33,32 +31,40 @@ class MainFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		val error_text = view.findViewById<TextView>(R.id.error)
-		val progress_bar = view.findViewById<ProgressBar>(R.id.progressBar)
-		error_text.setOnClickListener {
+		val errorText = view.findViewById<TextView>(R.id.error)
+		val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+		errorText.setOnClickListener {
 			viewLifecycleOwner.lifecycleScope.launch {
+				errorText.isVisible = false
+				progressBar.isVisible = true
 				try {
-					val list = viewModel.getCats(50)
-					catAdapter.submitList(catAdapter.currentList + list)
-					error_text.isVisible = false
+					val list: List<DataObject>
+					if (viewModel.gifAdapter.itemCount >= 20)
+						list = viewModel.getGifs(4)
+					else {
+						list = viewModel.getGifs(20)
+					}
+					viewModel.gifAdapter.submitList(viewModel.gifAdapter.currentList + list)
+					progressBar.isVisible = false
 				} catch (error: Throwable) {
+					progressBar.isVisible = false
+					errorText.isVisible = true
 					error.printStackTrace()
-					error_text.text = "Error: ${error.message} " +
+					errorText.text = "Error: ${error.message} " +
 							"Click to retry"
 				}
 			}
 		}
-		progress_bar.isVisible = true
 
 		view.findViewById<RecyclerView>(R.id.recycler).apply {
 			layoutManager = GridLayoutManager(context, 2)
-			adapter = catAdapter
+			adapter = viewModel.gifAdapter
 
 			addOnScrollListener(object: OnScrollListener() {
 				override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
 					super.onScrolled(rv, dx, dy)
 
-					if (dy > 0) { // only when scrolling up
+					if (dy > 0 || dx < 0) { // only when scrolling up
 						val visibleThreshold = 2
 						val layoutManager = rv.layoutManager as GridLayoutManager
 						val lastItem = layoutManager.findLastCompletelyVisibleItemPosition()
@@ -66,8 +72,8 @@ class MainFragment : Fragment() {
 						if (currentTotalCount <= lastItem + visibleThreshold) {
 							viewLifecycleOwner.lifecycleScope.launch {
 								try {
-									val list = viewModel.getCats(4)
-									catAdapter.submitList(catAdapter.currentList + list)
+									val list = viewModel.getGifs(4)
+									viewModel.gifAdapter.submitList(viewModel.gifAdapter.currentList + list)
 								} catch (error: Throwable) {
 									error.printStackTrace()
 								}
@@ -80,14 +86,21 @@ class MainFragment : Fragment() {
 		}
 
 		viewLifecycleOwner.lifecycleScope.launch {
+			progressBar.isVisible = true
 			try {
-				progress_bar.isVisible = false
-				val list = viewModel.getCats(50)
-				catAdapter.submitList(catAdapter.currentList + list)
+				val list: List<DataObject>
+				if (viewModel.gifAdapter.itemCount >= 20)
+					list = viewModel.getGifs(4)
+				else {
+					list = viewModel.getGifs(20)
+				}
+				viewModel.gifAdapter.submitList(viewModel.gifAdapter.currentList + list)
+				progressBar.isVisible = false
 			} catch (error: Throwable) {
 				error.printStackTrace()
-				error_text.isVisible = true
-				error_text.text = "Error: ${error.message} " +
+				progressBar.isVisible = false
+				errorText.isVisible = true
+				errorText.text = "Error: ${error.message} " +
 						"Click to retry"
 			}
 		}
