@@ -32,8 +32,8 @@ class GifAdapter: ListAdapter<DataObject, GifAdapter.GifViewHolder>(CatDiffitemC
 	}
 
 	class GifViewHolder(view: View): RecyclerView.ViewHolder(view) {
-		protected val image by lazy { view.findViewById<ImageView>(R.id.image) }
-		protected val imageLoader by lazy { Glide.with(image) }
+		private val image: ImageView = view.findViewById(R.id.image)
+		private val imageLoader =  Glide.with(image)
 
 		fun bind(cat: DataObject) {
 			val circularProgressDrawable = CircularProgressDrawable(image.context)

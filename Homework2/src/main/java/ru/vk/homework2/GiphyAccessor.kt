@@ -1,8 +1,6 @@
 package ru.vk.homework2
 
 import com.google.gson.annotations.SerializedName
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -30,19 +28,10 @@ interface GiphyAccessor {
 	suspend fun getGifs(@Query("q") query: String, @Query("limit") limit: Int, @Query("api_key") api_key: String, @Query("offset") offset: Int) : DataResult
 
 	companion object {
-		const val baseUrl = "https://api.giphy.com/v1/"
+		private const val baseUrl = "https://api.giphy.com/v1/"
 
 		fun create(): GiphyAccessor {
-			val loggingInterceptor = HttpLoggingInterceptor().apply {
-				level = HttpLoggingInterceptor.Level.BODY
-			}
-
-			val client = OkHttpClient.Builder().apply {
-				addNetworkInterceptor(loggingInterceptor)
-			}.build()
-
 			val retrofit = Retrofit.Builder().apply {
-				client(client)
 				addConverterFactory(GsonConverterFactory.create())
 				baseUrl(baseUrl)
 			}.build()
