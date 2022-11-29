@@ -41,8 +41,6 @@ class CatAdapter: ListAdapter<DataObject, CatAdapter.CatViewHolder>(CatDiffitemC
 			circularProgressDrawable.centerRadius = 30f
 			circularProgressDrawable.start()
 
-			imageLoader.load(cat.images.ogImage.url).preload()
-
 			imageLoader.load(cat.images.ogImage.url).placeholder(
 				circularProgressDrawable
 			).error(R.drawable.ic_launcher_foreground).into(image)

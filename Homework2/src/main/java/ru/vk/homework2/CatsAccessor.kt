@@ -27,7 +27,7 @@ data class ogImage(
 
 interface CatsAccessor {
 	@GET("gifs/trending")
-	suspend fun getCats(@Query("limit") limit: Int, @Query("api_key") api_key: String, @Query("offset") offset: Int) : DataResult
+	suspend fun getCats(@Query("q") query: String, @Query("limit") limit: Int, @Query("api_key") api_key: String, @Query("offset") offset: Int) : DataResult
 
 	companion object {
 		const val baseUrl = "https://api.giphy.com/v1/"

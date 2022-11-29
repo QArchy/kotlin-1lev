@@ -9,13 +9,13 @@ class MainViewModel : ViewModel() {
 	suspend fun getCats(limit: Int): List<DataObject> {
 		if (limit == 50) {
 			return accessor.getCats(
-				limit, "7lJF1UHRRVsX9F5Q8BLc5llXuCe92Nzt", 0
+				"cat" , limit, "7lJF1UHRRVsX9F5Q8BLc5llXuCe92Nzt", 0
 			).res
 		}
 		else {
 			offset += 4
 			return accessor.getCats(
-				limit, "7lJF1UHRRVsX9F5Q8BLc5llXuCe92Nzt", offset
+				"cat" , limit, "7lJF1UHRRVsX9F5Q8BLc5llXuCe92Nzt", offset
 			).res
 		}
 	}
