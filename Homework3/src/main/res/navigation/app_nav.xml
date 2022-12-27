@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/loginForm">
+
+    <fragment
+        android:id="@+id/loginForm"
+        android:name="com.example.homework3.LoginForm"
+        android:label="fragment_login_form"
+        tools:layout="@layout/fragment_login_form">
+        <action
+            android:id="@+id/action_loginForm_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/app_nav"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="Fragments.MainPageFragment.MainPageFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page">
+        <action
+            android:id="@+id/action_mainPageFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_notesListFragment"
+            app:destination="@id/notesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="Fragments.EditNoteFragment.EditNoteFragment"
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_edit_note">
+        <action
+            android:id="@+id/action_editNoteFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/app_nav"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.homework3.Database.Note"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="Fragments.NotesListFragment.NotesListFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.homework3.Database.Note" />
+        <action
+            android:id="@+id/action_notesListFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+    </fragment>
+</navigation>

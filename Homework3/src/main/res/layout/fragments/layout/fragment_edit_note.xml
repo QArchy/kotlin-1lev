@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:padding="10dp"
+    tools:context="Fragments.EditNoteFragment.EditNoteFragment">
+
+    <ImageView
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tick_icon_svg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/note_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/three_dots_icon_svg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editNotebookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:hint="Notebook"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save" />
+
+    <EditText
+        android:id="@+id/editNoteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/grey"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Title"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNotebookName" />
+
+    <EditText
+        android:id="@+id/editNoteContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:hint="@string/MainPage_start_writing"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:gravity="start"
+        android:textColorHint="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNoteTitle" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/editNoteContent"
+        app:layout_constraintEnd_toEndOf="@+id/editNoteContent"
+        app:layout_constraintStart_toStartOf="@+id/editNoteContent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TemplateNotes_country"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"
+                android:padding = "10dp"
+                android:background="@drawable/bottom_navbar_new_roundy"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TemplateNotes_gift"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"
+                android:padding = "10dp"
+                android:background="@drawable/bottom_navbar_new_roundy"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bottom_navbar_new_roundy"
+                android:padding="10dp"
+                android:text="@string/TemplateNotes_shop"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TemplateNotes_task"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"
+                android:padding = "10dp"
+                android:background="@drawable/bottom_navbar_new_roundy"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TemplateNotes_text"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"
+                android:padding = "10dp"
+                android:background="@drawable/bottom_navbar_new_roundy"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TemplateNotes_Create"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"
+                android:padding = "10dp"
+                android:background="@drawable/bottom_navbar_new_roundy"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

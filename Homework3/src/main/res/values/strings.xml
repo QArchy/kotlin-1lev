@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Homework 3</string>
+    <string name="SharedPreferences">SharedPreferencesNotes</string>
+    <string name="SharedPreferencesNotes">Notes</string>
+    <string name="SharedPreferencesNotebooks">Notebooks</string>
+    <string name="Bundle_NoteNotebook">Notebook</string>
+    <string name="Bundle_NoteTitle">Title</string>
+    <string name="Bundle_NoteContent">Content</string>
+    <string name="Notes_Quantity">Notes</string>
+    <string name="Notebooks_Quantity">Notebooks</string>
+    <string name="Database_NoteEmpty">There are no notes yet, create one!</string>
+    <!-- LoginForm Strings -->
+    <string name="LoginForm_archy_notes">Archy\'s Notes</string>
+    <string name="LoginForm_remember">Remember everything that matters</string>
+    <string name="LoginForm_login">Log in or sign up for free</string>
+    <string name="LoginForm_email">Email</string>
+    <string name="LoginForm_signup">Sign up</string>
+    <string name="LoginForm_password">Password</string>
+    <string name="LoginForm_or_use">or use</string>
+    <string name="LoginForm_google">Sign up with Google</string>
+    <string name="LoginForm_apple">Sign up with Apple</string>
+    <string name="icon_text">icon_text</string>
+    <!-- MainPage Strings -->
+    <string name="MainPage_good_afternoon">Good afternoon, Username</string>
+    <string name="MainPage_recent_notes">Recent notes</string>
+    <string name="MainPage_scratch_pad">SCRATCH PAD</string>
+    <string name="MainPage_start_writing">Start writing…</string>
+    <string name="MainPage_new">NEW</string>
+    <string name="MainPage_sample">One two three, go</string>
+    <!-- MainPageOverlay Strings -->
+    <string name="MainPageOverlay_home">Home</string>
+    <string name="MainPageOverlay_notes">Notes</string>
+    <string name="MainPageOverlay_tasks">Tasks</string>
+    <string name="MainPageOverlay_notebooks">Notebooks</string>
+    <string name="MainPageOverlay_trash">Trash</string>
+    <!-- TemplateNotes Strings -->
+    <string name="TemplateNotes_shop">Shopping List</string>
+    <string name="TemplateNotes_gift">Gifts List</string>
+    <string name="TemplateNotes_task">Tasks List</string>
+    <string name="TemplateNotes_text">Text Note</string>
+    <string name="TemplateNotes_country">Country List</string>
+    <string name="TemplateNotes_Create">Create Template</string>
+</resources>

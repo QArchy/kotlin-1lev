@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "KotlinHomework"
 include ':Homework1'
 include ':Homework2'
+include ':notes'
+include ':Homework3'

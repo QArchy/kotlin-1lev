@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FFFFFF</color>
+    <color name="secondary">#CCCCCC</color>
+    <color name="green">#00A82E</color>
+    <color name="black">#FF000000</color>
+    <color name="grey">#1A1A1A</color>
+    <color name="third">#8C8C8C</color>
+    <color name="scratch_pad">#25251B</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
