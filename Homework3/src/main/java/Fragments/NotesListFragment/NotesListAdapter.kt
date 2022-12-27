@@ -29,9 +29,9 @@ class NoteListAdapter: RecyclerView.Adapter<NoteListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = userList[position]
-        holder.itemView.note_title.text = currentItem.title
-        holder.itemView.note_content.text = currentItem.content
-        holder.itemView.note_date.text = currentItem.date
+        holder.itemView.fragment_notes_tvListNoteTitle.text = currentItem.title
+        holder.itemView.fragment_notes_tvListNoteContent.text = currentItem.content
+        holder.itemView.fragment_notes_tvListNoteDate.text = currentItem.date
         holder.itemView.setOnClickListener {
             val action = NotesListFragmentDirections.actionNotesListFragmentToEditNoteFragment(currentItem)
             holder.itemView.findNavController().navigate(action)

@@ -10,7 +10,7 @@
     android:background="@color/black">
 
     <ImageView
-        android:id="@+id/icon"
+        android:id="@+id/fragment_login_form_ivIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -22,7 +22,7 @@
         android:contentDescription="@string/icon_text" />
 
     <TextView
-        android:id="@+id/archy_notes"
+        android:id="@+id/fragment_login_form_tvArchyNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/LoginForm_archy_notes"
@@ -32,10 +32,10 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_ivIcon" />
 
     <TextView
-        android:id="@+id/remember"
+        android:id="@+id/fragment_login_form_tvRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/LoginForm_remember"
@@ -45,10 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/archy_notes" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_tvArchyNotes" />
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/fragment_login_form_tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -58,10 +58,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remember" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_tvRemember" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/fragment_login_form_etText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -78,12 +78,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_tvLogin"
         android:autofillHints=""
         tools:ignore="TextFields" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/sing_up"
+        android:id="@+id/fragment_login_form_btnSingUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -96,10 +96,10 @@
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_etText" />
 
     <TextView
-        android:id="@+id/or_use"
+        android:id="@+id/fragment_login_form_tvOrUse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -108,24 +108,24 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sing_up" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_btnSingUp" />
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/fragment_login_form_btnGoogle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/layout_stroke"
+        android:background="@drawable/stroke_grey"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/or_use">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_tvOrUse">
 
         <ImageView
-            android:id="@+id/google_icon"
+            android:id="@+id/fragment_login_form_ivGoogleIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -134,7 +134,7 @@
             android:src="@drawable/google_icon_svg" />
 
         <TextView
-            android:id="@+id/google"
+            android:id="@+id/fragment_login_form_tvGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -148,20 +148,21 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/fragment_login_form_btnApple"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/layout_stroke"
+        android:background="@drawable/stroke_grey"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_form_btnGoogle">
 
         <ImageView
-            android:id="@+id/apple_icon"
+            android:id="@+id/fragment_login_form_ivAppleIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -170,7 +171,7 @@
             android:src="@drawable/apple_icon_svg" />
 
         <TextView
-            android:id="@+id/apple"
+            android:id="@+id/fragment_login_form_tvSignApple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

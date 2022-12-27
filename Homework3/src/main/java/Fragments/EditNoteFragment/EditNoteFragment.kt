@@ -31,27 +31,27 @@ class EditNoteFragment : Fragment() {
 
         mNoteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
 
-        view.findViewById<ImageView>(R.id.save).setOnClickListener {
+        view.findViewById<ImageView>(R.id.fragment_edit_note_tvSave).setOnClickListener {
             insertDataToDatabase()
         }
 
         if (args.currentItem != null) {
-            view.findViewById<EditText>(R.id.editNotebookName).setText(args.currentItem!!.notebook)
-            view.findViewById<EditText>(R.id.editNoteTitle).setText(args.currentItem!!.title)
-            view.findViewById<EditText>(R.id.editNoteContent).setText(args.currentItem!!.content)
+            view.findViewById<EditText>(R.id.fragment_edit_note_etNotebookName).setText(args.currentItem!!.notebook)
+            view.findViewById<EditText>(R.id.fragment_edit_note_etNoteTitle).setText(args.currentItem!!.title)
+            view.findViewById<EditText>(R.id.fragment_edit_note_etNoteContent).setText(args.currentItem!!.content)
         }
 
         return view
     }
 
     private fun insertDataToDatabase() {
-        val notebookName = editNotebookName.text.toString()
-        val noteTitle = editNoteTitle.text.toString()
-        val noteContent = editNoteContent.text.toString()
+        val notebookName = fragment_edit_note_etNotebookName.text.toString()
+        val noteTitle = fragment_edit_note_etNoteTitle.text.toString()
+        val noteContent = fragment_edit_note_etNoteContent.text.toString()
 
         if (inputCheck(notebookName, noteTitle, noteContent)) {
             val newNote = Note(0, notebookName, noteTitle, noteContent,
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"))
             )
 
             if (args.currentItem != null) {
@@ -68,7 +68,7 @@ class EditNoteFragment : Fragment() {
                     }
 
                     mNoteViewModel.alterNoteDate(args.currentItem!!.id,
-                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))
+                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"))
                     )
 
                     Toast.makeText(requireContext(), "Successfully changed", Toast.LENGTH_SHORT).show()

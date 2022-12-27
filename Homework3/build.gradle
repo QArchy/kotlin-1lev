@@ -23,6 +23,8 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
+                    'src/main/res/layout/fragments/layout/login_form',
+                    'src/main/res/layout/fragments/layout/edit_note',
                     'src/main/res/layout/fragments/layout/notes',
                     'src/main/res/layout/fragments/layout/main_page',
                     'src/main/res/layout/fragments',
@@ -50,7 +52,7 @@ android {
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.test:core-ktx:1.5.0'

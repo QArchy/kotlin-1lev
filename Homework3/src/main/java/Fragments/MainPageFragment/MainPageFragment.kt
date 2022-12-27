@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.homework3.Database.NoteViewModel
-import com.example.homework3.Gif.GiphyViewModel
+import com.example.homework3.Gif.GifsViewModel
 import com.example.homework3.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -24,7 +24,25 @@ import java.time.LocalDateTime
 class MainPageFragment : Fragment() {
 
     private lateinit var mNoteViewModel: NoteViewModel
-    private lateinit var mGiphyViewModel: GiphyViewModel
+    private lateinit var mGifsViewModel: GifsViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mNoteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+        mGifsViewModel = ViewModelProvider(this)[GifsViewModel::class.java]
+//        for (i in 1..100)
+//            mNoteViewModel.addNote(
+//                Note(
+//                    id = 0,
+//                    notebook = "$i Notebook",
+//                    title = "$i Title",
+//                    content = "$i Content $i Content $i Content $i Content $i Content $i Content",
+//                    date = LocalDateTime.now()
+//                        .format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"))
+//                )
+//            )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +51,13 @@ class MainPageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main_page, container, false)
 
         // set hello
-        view.findViewById<TextView>(R.id.good_afternoon).text = getDayTime(LocalDateTime.now().hour)
-        view.findViewById<TextView>(R.id.date).text = getDate(LocalDateTime.now())
+        view.findViewById<TextView>(R.id.fragment_main_page_tvGoodAfternoon).text = getDayTime(LocalDateTime.now().hour)
+        view.findViewById<TextView>(R.id.fragment_main_page_tvDate).text = getDate(LocalDateTime.now())
 
-        val rv = view.findViewById<RecyclerView>(R.id.recyclerViewRecentNotes)
-        val eText = view.findViewById<EditText>(R.id.editTextTextPersonName)
-        val overlay = view.findViewById<ConstraintLayout>(R.id.overlay)
-        view.findViewById<ImageView>(R.id.three_lines).setOnClickListener {
+        val rv = view.findViewById<RecyclerView>(R.id.fragment_main_page_RV)
+        val eText = view.findViewById<EditText>(R.id.fragment_main_page_etScratchPad)
+        val overlay = view.findViewById<ConstraintLayout>(R.id.fragment_main_page_overlay)
+        view.findViewById<ImageView>(R.id.fragment_main_page_btnThreeLines).setOnClickListener {
             if (overlay.isVisible) {
                 overlay.visibility = View.INVISIBLE
 
@@ -52,21 +70,12 @@ class MainPageFragment : Fragment() {
                 eText.visibility = View.GONE
             }
         }
-        view.findViewById<LinearLayout>(R.id.add).setOnClickListener {
+        view.findViewById<LinearLayout>(R.id.fragment_main_page_btnAdd).setOnClickListener {
             findNavController().navigate(R.id.action_mainPageFragment_to_editNoteFragment)
         }
-        view.findViewById<TextView>(R.id.notes).setOnClickListener {
+        val notes = view.findViewById<TextView>(R.id.fragment_main_page_overlayNotes)
+        notes.setOnClickListener {
             findNavController().navigate(R.id.action_mainPageFragment_to_notesListFragment)
-        }
-
-        mGiphyViewModel = ViewModelProvider(this)[GiphyViewModel::class.java]
-        viewLifecycleOwner.lifecycleScope.launch {
-            delay(2000)
-            val gif = mGiphyViewModel.getGif()
-            if (gif != null)
-                Glide.with(
-                    view.findViewById<ImageView>(R.id.main_page_bg)
-                ).load(gif.images.ogImage.url)
         }
 
         return view
@@ -76,25 +85,36 @@ class MainPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // set rv
-        val rv = view.findViewById<RecyclerView>(R.id.recyclerViewRecentNotes)
+        val rv = view.findViewById<RecyclerView>(R.id.fragment_main_page_RV)
         rv.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = RecentNoteListAdapter()
         }
 
-        mNoteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         mNoteViewModel.readAllData.observe(viewLifecycleOwner) { note ->
             viewLifecycleOwner.lifecycleScope.launch {
                 delay(2000)
                 (rv.adapter as RecentNoteListAdapter).setData(note)
 
-                view.findViewById<ProgressBar>(R.id.progressBar).visibility = View.INVISIBLE
+                view.findViewById<ProgressBar>(R.id.fragment_main_page_progressBar).visibility = View.INVISIBLE
                 if ((rv.adapter as RecentNoteListAdapter).itemCount == 0) {
-                    view.findViewById<TextView>(R.id.emptyRecentNotes).visibility = View.VISIBLE
+                    view.findViewById<TextView>(R.id.fragment_main_page_emptyRecentNotes).visibility = View.VISIBLE
                 } else {
-                    view.findViewById<TextView>(R.id.emptyRecentNotes).visibility = View.INVISIBLE
+                    view.findViewById<TextView>(R.id.fragment_main_page_emptyRecentNotes).visibility = View.INVISIBLE
                 }
             }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val imageView = requireView().findViewById<ImageView>(R.id.fragment_main_page_ivBG)
+        viewLifecycleOwner.lifecycleScope.launch {
+            delay(2000)
+            val gif = mGifsViewModel.getGif()
+            if (gif != null)
+                Glide.with(imageView).load(gif.images.ogImage.url).into(imageView)
         }
     }
 

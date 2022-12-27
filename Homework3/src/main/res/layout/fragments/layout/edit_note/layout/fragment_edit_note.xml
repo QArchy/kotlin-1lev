@@ -9,7 +9,7 @@
     tools:context="Fragments.EditNoteFragment.EditNoteFragment">
 
     <ImageView
-        android:id="@+id/save"
+        android:id="@+id/fragment_edit_note_tvSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/tick_icon_svg"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/note_settings"
+        android:id="@+id/fragment_edit_note_tvNoteSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/three_dots_icon_svg"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editNotebookName"
+        android:id="@+id/fragment_edit_note_etNotebookName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -38,10 +38,10 @@
         android:textColorHint="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/save" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_edit_note_tvSave" />
 
     <EditText
-        android:id="@+id/editNoteTitle"
+        android:id="@+id/fragment_edit_note_etNoteTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/grey"
@@ -52,10 +52,10 @@
         android:hint="Title"
         android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNotebookName" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_edit_note_etNotebookName" />
 
     <EditText
-        android:id="@+id/editNoteContent"
+        android:id="@+id/fragment_edit_note_etNoteContent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:backgroundTint="@color/grey"
@@ -68,83 +68,83 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNoteTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_edit_note_etNoteTitle" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editNoteContent"
-        app:layout_constraintEnd_toEndOf="@+id/editNoteContent"
-        app:layout_constraintStart_toStartOf="@+id/editNoteContent">
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_edit_note_etNoteContent"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_edit_note_etNoteContent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_edit_note_etNoteContent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/country"
+                android:id="@+id/fragment_edit_note_tvCountry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/TemplateNotes_country"
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"
                 android:padding = "10dp"
-                android:background="@drawable/bottom_navbar_new_roundy"
+                android:background="@drawable/roundy_solid_green"
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/gift"
+                android:id="@+id/fragment_edit_note_tvGift"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/TemplateNotes_gift"
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"
                 android:padding = "10dp"
-                android:background="@drawable/bottom_navbar_new_roundy"
+                android:background="@drawable/roundy_solid_green"
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/shop"
+                android:id="@+id/fragment_edit_note_tvShop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/bottom_navbar_new_roundy"
+                android:background="@drawable/roundy_solid_green"
                 android:padding="10dp"
                 android:text="@string/TemplateNotes_shop"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/task"
+                android:id="@+id/fragment_edit_note_tvTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/TemplateNotes_task"
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"
                 android:padding = "10dp"
-                android:background="@drawable/bottom_navbar_new_roundy"
+                android:background="@drawable/roundy_solid_green"
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/fragment_edit_note_tvText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/TemplateNotes_text"
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"
                 android:padding = "10dp"
-                android:background="@drawable/bottom_navbar_new_roundy"
+                android:background="@drawable/roundy_solid_green"
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/create"
+                android:id="@+id/fragment_edit_note_tvCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/TemplateNotes_Create"
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"
                 android:padding = "10dp"
-                android:background="@drawable/bottom_navbar_new_roundy"
+                android:background="@drawable/roundy_solid_green"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/bottom_navbar_roundy">
+    android:background="@drawable/roundy_solid_grey">
 
 
     <TextView
-        android:id="@+id/note_title"
+        android:id="@+id/fragment_notes_tvListNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/note_content"
+        android:id="@+id/fragment_notes_tvListNoteContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -32,10 +32,10 @@
         android:textColor="@color/white"
         android:text="Content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_title" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_notes_tvListNoteTitle" />
 
     <TextView
-        android:id="@+id/note_date"
+        android:id="@+id/fragment_notes_tvListNoteDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -45,6 +45,6 @@
         android:textColor="@color/white"
         android:text="Date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_content" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_notes_tvListNoteContent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

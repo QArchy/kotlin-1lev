@@ -30,7 +30,7 @@ class NotesListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_notes, container, false)
 
         mNoteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
-        val rv = view.findViewById<RecyclerView>(R.id.notes)
+        val rv = view.findViewById<RecyclerView>(R.id.fragment_notes_RV)
         rv.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = NoteListAdapter()
@@ -41,13 +41,13 @@ class NotesListFragment : Fragment() {
                 delay(2000)
                 (rv.adapter as NoteListAdapter).setData(note)
 
-                view.findViewById<TextView>(R.id.notes_quantity).text =
+                view.findViewById<TextView>(R.id.fragment_notes_tvNotesQuantity).text =
                     "${(rv.adapter as NoteListAdapter).itemCount} Notes"
-                view.findViewById<ProgressBar>(R.id.progressBarNotes).visibility = View.INVISIBLE
+                view.findViewById<ProgressBar>(R.id.fragment_notes_pbNotes).visibility = View.INVISIBLE
                 if ((rv.adapter as NoteListAdapter).itemCount == 0) {
-                    view.findViewById<TextView>(R.id.emptyNotes).visibility = View.VISIBLE
+                    view.findViewById<TextView>(R.id.fragment_notes_emptyNotes).visibility = View.VISIBLE
                 } else {
-                    view.findViewById<TextView>(R.id.emptyNotes).visibility = View.INVISIBLE
+                    view.findViewById<TextView>(R.id.fragment_notes_emptyNotes).visibility = View.INVISIBLE
                 }
             }
         }
